@@ -69,4 +69,8 @@ class CartController extends Controller
         // 解析模板
         return view("home.cart.goodscart",["title"=>"购物车","data"=>$data]);
     }
+
+    /**
+     * 副教授的飞机哦
+     */
 }
