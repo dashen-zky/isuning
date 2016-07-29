@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class CartController extends Controller
 {
     /**
-     * 添加到购物车页面
+     * 添加到购物车
      */
     public function add(Request $request)
     {
@@ -51,6 +51,9 @@ class CartController extends Controller
         }
     }
 
+    /**
+     * 购物车页面
+     */
     public function goodscart()
     {
         // 遍历session
