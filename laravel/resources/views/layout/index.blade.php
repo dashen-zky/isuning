@@ -7,6 +7,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link href="/homes/css/css.css" rel="stylesheet">
+<<<<<<< HEAD
 <style type="text/css">
     .w1210{
         position:absolute;
@@ -24,6 +25,12 @@
         z-index:99999999;
     }
 </style>
+=======
+@section("myCss")
+
+@show
+
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 </head>
 <body>
 <!-- 头部 -->
@@ -49,23 +56,35 @@
 				<li class="line"></li>
 				<li class="item"><a href="#" target="_blank"><span>网站导航</span><i class="arrow"></i></a></li>
 			</ul>
+<<<<<<< HEAD
             @if(session('username'))
                <span id="isu" class="head_login_tips head_pos">{{session('username')}}&nbsp&nbsp&nbsp<span>您好</span><i class="arrow"></i></span> 
                <div  id="isc" class="remind" style="clear:both;display:none;"><br><a href="/person"><span>账号管理</span></a><br><br><a href="/login"><span>退出</span></a></div>
             @else
 			   <span class="head_login_tips"><a href="/login">你好，请登录</a><a href="register" target="_blank">免费注册</a></span>
             @endif
+=======
+			<span class="head_login_tips">你好，请登录<a href="#" target="_blank">免费注册</a></span>
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 		</div>
 	</div>
 	<div class="head_ad">
 		<div class="head_ad_box">
+<<<<<<< HEAD
 			<a href="#" target="_blank"><img src="/homes/images/head_ad.png" alt=""></a>
+=======
+			<a href="#" target="_blank"><img src=".//homes/images/head_ad.png" alt=""></a>
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 		</div>
 	</div>
 </div>
 <div class="head_search">
 <div class="h_logo">
+<<<<<<< HEAD
 <a href="#" target="_blank" class="jd_logo"></a>
+=======
+<a href="http://isuning.com" target="_blank" class="jd_logo"></a>
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <span class="jd_slogon"></span>
 </div>
 <div class="search_box">
@@ -91,7 +110,11 @@
             </ul>
 </div>
 
+<<<<<<< HEAD
 @section("content")
+=======
+@section("jd_nav")
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <div id="jd_nav">
         <div class="w1210 clearfix">
                 <div id="nav_side" class="nav_span">
@@ -113,7 +136,13 @@
                 </div>
         </div>
 </div>
+<<<<<<< HEAD
 
+=======
+@show
+
+@section("content")
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <!-- banner -->
 <div id="banner">
     <div class="ban_box">
@@ -167,6 +196,7 @@
         </ul>
     </div>
 </div>
+<<<<<<< HEAD
 <!-- 猜你喜欢 -->
 <div class="hobby">
     <div class="title">
@@ -282,6 +312,8 @@
             </div>
         </div>
 </div>
+=======
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <!-- floor-1 -->
 <div class="jd_floor">
     <div class="title">
@@ -413,6 +445,7 @@
         </ul>
     </div>
 </div>
+<<<<<<< HEAD
 <!-- 绑定js-->
 <script type="text/javascript" src="/homes/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
@@ -427,5 +460,7 @@
     })
 
 </script>
+=======
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 </body>
 </html>

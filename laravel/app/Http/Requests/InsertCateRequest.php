@@ -8,7 +8,11 @@ class InsertCateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
+<<<<<<< HEAD
      *
+=======
+     *regex:
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
      * @return bool
      */
     public function authorize()
@@ -24,15 +28,22 @@ class InsertCateRequest extends Request
     public function rules()
     {
         return [
+<<<<<<< HEAD
             'username' => 'required|unique:users|regex:/^\S{8,30}$/',
             'password' => 'required|regex:/^\S{8,30}$/',
             'repassword' => 'required|same:password',
             'email' => 'required|unique:users|regex:/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/'
+=======
+            "name"=>"required|regex:/^\S+$/",
+            'status'=>"required|regex:/^[01]$/",
+            "pid"=>"required|regex:/^\d+$/",
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
         ];
     }
 
     public function messages()
     {
+<<<<<<< HEAD
         return [
            'username.required' => "用户名不能为空",
            'username.unique' => "用户名已存在",
@@ -44,6 +55,15 @@ class InsertCateRequest extends Request
            'email.required' => "邮箱地址不能为空",
            'email.unique' => "邮箱号已存在",
            'email.regex' => '邮箱格式不正确 请填写正确的邮箱号' 
+=======
+         return [
+            "name.required"=>"分类名不能为空",
+            "name.regex"=>"分类名有空白字符",
+            'status.required'=>"分类状态不能为空",
+            'status.regex'=>"分类参数不正确",
+            "pid.required"=>"类别不能为空",
+            "pid.regex"=>"类别参数不正确",
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
         ];
     }
 }

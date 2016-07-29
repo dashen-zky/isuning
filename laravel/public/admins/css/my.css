@@ -1,7 +1,11 @@
 body, 
 #mws-container
 {
+<<<<<<< HEAD
 	background-image:url('../images/core/bg/bright_squares.png');
+=======
+    background-image:url('/admins/images/core/bg/carbon.png');
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 
 #mws-sidebar, 
@@ -19,12 +23,20 @@ body,
 #mws-user-tools .mws-dropdown-menu .mws-dropdown-box, 
 #mws-user-tools .mws-dropdown-menu.open .mws-dropdown-trigger
 {
+<<<<<<< HEAD
 	background-color:#192a54;
+=======
+    background-color:#4b0f54;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 
 #mws-header
 {
+<<<<<<< HEAD
 	border-color:#88a9eb;
+=======
+    border-color:#97c730;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 
 .mws-panel .mws-panel-header span, 
@@ -43,8 +55,13 @@ body,
 .ui-state-hover a, 
 .ui-state-focus a
 {
+<<<<<<< HEAD
 	color:#8affe2;
 	text-shadow:0 0 6px rgba(157, 224, 245, 0.5);
+=======
+    color:#b1ff4c;
+    text-shadow:0 0 6px rgba(230, 232, 208, 0.45);
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 
 #mws-searchbox .mws-search-submit, 
@@ -65,5 +82,9 @@ body,
 .ui-accordion-header .ui-accordion-header-icon, 
 .ui-dialog-titlebar-close
 {
+<<<<<<< HEAD
 	background-color:#88a9eb;
+=======
+    background-color:#97c730;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }

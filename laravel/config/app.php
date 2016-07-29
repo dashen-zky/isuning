@@ -195,7 +195,13 @@ return [
 
     ],
 
+<<<<<<< HEAD
     //自定义配置
     'App_NAME' => '爱苏宁商城'
+=======
+    // 自定义配置
+    'upload_dir' => './uploads/'.date("Ymd").'/',
+    'upload_img_name' => time().rand(100000,999999),
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 
 ];

@@ -153,14 +153,22 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	width:163px;
 	height: 60px;
 	display: block;
+<<<<<<< HEAD
 	
+=======
+	background:url(../images/logo.png) no-repeat center;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 	float:left;
 }
 .jd_slogon{
 	width: 112px;
 	height: 60px;
 	display: block;
+<<<<<<< HEAD
 	
+=======
+	background:url(../images/slogon.png) no-repeat center;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 	float:left;
 }
 .search_box{
@@ -1644,6 +1652,7 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	width: 1040px;
 	overflow: hidden;
 	padding-bottom: 20px;
+<<<<<<< HEAD
 	//border:1px solid #f00;
 }
 .list_goods .item{
@@ -1657,6 +1666,19 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 .list_goods .item_wrap{
 	padding:12px 9px;
 	border: 1px solid #DDDDDD;
+=======
+}
+.list_goods .item{
+	float: left;
+	width: 240px;
+	position: relative;
+	margin-top: 10px;
+	margin-right: 20px;
+}
+.list_goods .item_wrap{
+	padding:12px 9px;
+	border: 1px solid #fff;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 .list_goods .item_wrap:hover{
 	border: 1px solid #f1f1f1;
@@ -1688,7 +1710,11 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 }
 .list_goods .g_info{
 	width:100%;
+<<<<<<< HEAD
 	height:40p;
+=======
+	height:40px;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 	line-height: 20px;
 	margin-bottom: 5px;
 	overflow: hidden;
@@ -2150,6 +2176,7 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	margin-left:10px ;
 }
 #addCar{
+<<<<<<< HEAD
 	width: 160px;
 	height: 36px;
 	margin-left:50px;
@@ -2161,6 +2188,16 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	margin-right:260px;
 	position:relative;
 	bottom:38px;
+=======
+	width: 135px;
+	height: 36px;
+	background: url(../images/product/icon/jr1.png) no-repeat center;
+}
+#goShoping{
+	width: 73px;
+	height: 36px;
+	background: url(../images/product/icon/yjg.png) no-repeat center;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 .pro_about .img{
 	width:100%;
@@ -3048,6 +3085,7 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 }
 .car_item .number .add{
 	border:1px solid #cacbcb;
+<<<<<<< HEAD
 	height: 25px;
 	overflow: hidden;
 	width:90px;
@@ -3061,6 +3099,29 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	line-height: 20px;
 	border:none;
 	text-align: center;
+=======
+	height: 20px;
+	overflow: hidden;
+}
+.car_item .number .add em{
+	float: left;
+	border-left:1px solid #cacbcb;
+	width: 18px;
+	height: 20px;
+	line-height: 20px;
+	color:#333;
+	text-align: center;
+	margin-left: -1px;
+}
+.car_item .number .inp_num{
+	float: left;
+	width: 42px;
+	height: 20px;
+	line-height: 20px;
+	border:none;
+	text-align: center;
+	border-left:1px solid #cacbcb;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }
 .car_item .number .font{
 	color:#aaa;
@@ -3144,6 +3205,7 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	line-height: 52px;
 	font-size: 20px;
 	color:#fff;
+<<<<<<< HEAD
 }
 .hidden{
 	display:none;
@@ -3644,3 +3706,6 @@ fieldset[disabled] .btn-link:focus {
   margin-top: 5px;
 }
 
+=======
+}
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed

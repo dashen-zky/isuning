@@ -44,7 +44,11 @@
 
 .mws-table tbody td, 
 .mws-table tfoot td {
+<<<<<<< HEAD
     padding: 8px 16px;
+=======
+    padding: 6px 5px;
+>>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
     border-left-width: 1px;
     border-left-style: dotted;
     border-left-color: #bebebe !important;
