@@ -29,7 +29,7 @@ class UpdateShopTypeRequest extends Request
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'name.required'=>"分类名不能为空",

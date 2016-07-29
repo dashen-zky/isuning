@@ -73,11 +73,11 @@ class TypesController extends Controller
     public function getEdit(Request $request)
     {
         // 获取 类型的信息
-        $types = Type::find($request->input("id"));
+        $type = Type::find($request->input("id"));
         //模板解析32
         return view("admin.type.edit",[
             "title"=>"类型编辑",
-            "types"=>$types,
+            "type"=>$type,
         ]);
 
     }
@@ -95,5 +95,29 @@ class TypesController extends Controller
         }else{
             return back()->with("error","类别更新失败");
         }
+    }
+
+    public function getDelete(Request $request)
+    {   
+        // $isDelete = false;
+        // // dd(5263456);
+        // DB::beginTransaction();
+        //     // 删除类型
+        //     if(Type::where("id",$request->input("id"))->delete()){
+        //         // 删除类型下面的属性
+        //         if(Attr::where("type_id",$request->input("id"))->first()){
+        //             // 删除属性下面的属性值
+        //             Attr::where("type_id",$request->input("id"))
+        //             }else{
+        //                 DB::rollback();
+        //                 return back()-with("error","删除失败");
+        //             }
+        //         }else{
+        //             $isDelete = true;
+        //         }
+
+        //         // 删除类型下面的所有商品
+        //         if(Good::){}
+        //     }
     }
 }

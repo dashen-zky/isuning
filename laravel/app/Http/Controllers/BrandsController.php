@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Brand;
 // use App\Cate;
 use Config;
+use DB;
+// use Cate;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\TypeRequest;
@@ -73,6 +75,7 @@ class BrandsController extends Controller
                 }
             })
             ->paginate($request->input('num',10));
+
         // 模板返回
         return view("admin.brand.list",[
             "title"=>"品牌列表",
@@ -82,7 +85,7 @@ class BrandsController extends Controller
     }
 
     /**
-     * 品牌的状态操作
+     * 品牌的状态操作 ajax
      */
     public function getAjaxUpdate(Request $request)
     {
@@ -136,6 +139,19 @@ class BrandsController extends Controller
             return redirect("/admin/brand/index")->with("success","品牌修改成功");
         }else{
             return back()->with("error","品牌修改失败");
+        }
+    }
+
+    /**
+     * 品牌的删除操作
+     */
+    public function getDelete(Request $request)
+    {
+        // 删除品牌
+        if(Brand::where("id",$request->input("id"))->delete()){
+            return back()->with("success","删除成功");
+        }else{
+            return back()->with("error","删除失败");
         }
     }
 

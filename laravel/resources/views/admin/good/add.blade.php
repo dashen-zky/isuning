@@ -1,5 +1,6 @@
 @extends('layout.admin')
-@section("title",$title);
+@section("title",$title)
+
 @section('content')
 	<div class="mws-panel grid_8">
         
@@ -22,32 +23,56 @@
                     <div class="mws-form-row">
                         <label class="mws-form-label">　商品名称 : </label>
                         <div class="mws-form-item">
-                            <input type="text" class="small" name="title">
+                            <input type="text" class="small" name="name" value="{{old('name')}}">
                         </div>
                     </div>
 
                     <div class="mws-form-row">
-                        <label class="mws-form-label">　商品简介 : </label>
+                        <label class="mws-form-label">　商品标题 : </label>
                         <div class="mws-form-item">
-                            <textarea name="intro"  class="large" rows="10"></textarea>
+                            <input type="text" class="small" name="title" value="{{old('title')}}">
                         </div>
                     </div>
 
                     <div class="mws-form-row" >
                         <label class="mws-form-label" >　商品主图 : </label>
-                        <div class="mws-form-item fileinput-holder small">
-                            <input type="file" name="img">
+                        <div class="mws-form-item fileinput-holder" style="width:46%">
+                            <input type="file" name="img" class="" value="{{old('img')}}">
                         </div>
                     </div>
                     
                     <div class="mws-form-row bordered">
-                        <label class="mws-form-label">　商品分类 : </label>
+                        <label class="mws-form-label">　商品所属类型 : </label>
                         <div class="mws-form-item">
-                           <select class="small" name="tid" >
-                                <option value="0">请选择</option>
-                                @foreach($type as $k=>$v)
-                                <option value="{{$v->id}}">{{$v->name}}</option>
+                           <select class="small" name="type_id" >
+                                <option>请选择</option>
+                                @foreach($types as $k=>$v)
+                                <option value="{{$v->id}}" @if(old("type_id") == $v->id) selected @endif>{{$v->name}}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">　商品所属分类 : </label>
+                        <div class="mws-form-item">
+                           <select class="small" name="cate_id" >
+                                <option>请选择</option>
+                                @foreach($cates as $k=>$v)
+                                <option value="{{$v->id}}" @if(old("cate_id") == $v->id) selected @endif>{{$v->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="mws-form-row bordered">
+                        <label class="mws-form-label">　商品所属品牌 : </label>
+                        <div class="mws-form-item">
+                           <select class="small" name="brand_id" >
+                                <option >请选择</option>
+                              
                             </select>
                         </div>
                     </div>
@@ -63,7 +88,7 @@
                     <div class="mws-form-row bordered">
                         <label class="mws-form-label">　商品价格 : </label>
                         <div class="mws-form-item">
-                            <input type="text" class="small" name="price">
+                            <input type="text" class="small" name="price" value="{{old('price')}}">
                         </div>
                     </div>
                     
@@ -73,7 +98,7 @@
                         <script type="text/javascript" charset="utf-8" src="/admins/Uediter/ueditor.all.min.js"> </script>
                         <script type="text/javascript" charset="utf-8" src="/admins/Uediter/lang/zh-cn/zh-cn.js"></script>
                         <div class="mws-form-item">
-                            <script id="editor" type="text/plain" style="height:580px;" name="content"></script>
+                            <script id="editor" type="text/plain" style="height:580px;" name="content">{{old('content')}}</script>
                         </div>
                         <script type="text/javascript">
                             //实例化编辑器
@@ -92,5 +117,32 @@
     </div>
 @endsection
 
+
+@section("myJs")
+<script type="text/javascript" src="/admins/js/libs/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    // var cate_id = 0;
+    eval('var brands = {!! $brands !!}');
+    // console.log(brands);
+    $("select[name=cate_id]").change(function(){
+        var str = '';
+        for(var key in brands){
+            $("select[name=brand_id]").children().remove();
+            if(brands[key].cate_id == $(this).val()){
+                str += '<option @if(old('+"brand_id"+')) selected @endif value="'+brands[key].id+'">'+brands[key].name+'</option>';
+            }
+        }
+        if(str.length == 0){
+            $("select[name=brand_id]").html('');
+        }
+       $(str).appendTo("select[name=brand_id]");
+    });
     
+    @if(old("cate_id"))  $("select[name=cate_id]").trigger("change") @endif
+
+})
+
+</script>
+@endsection
 

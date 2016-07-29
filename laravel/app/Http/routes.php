@@ -11,30 +11,48 @@
 |
 */
 
-//��ҳ
+/********************* 前台页面路由 ************************************/
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index',["title"=>"京东首页"]);
 });
+// 商品的详情
+Route::get("/detail.html","Goodscontroller@detail");
+// 商品的具体价格等信息等路由
+Route::get("/ajax-detail","Goodscontroller@ajaxDetail");
+// 商品列表的路由
+Route::get("/list","Goodscontroller@list");
+// 商品添加到购物车页面
+Route::post("/index/cart","CartController@add");
+Route::get("/cart","CartController@goodscart");
 
-//��̨��¼·��
+
+/********************* 后台路由   **************************************/
+// 后台登录路由
 Route::get("/admin/login","AdminController@login");
-// ��̨����·����
+// 后台操作的路由组
 Route::group([],function(){
-	//��̨��ҳ·��
+	// 后台首页
 	Route::get("/admin","AdminController@index");
-	//�û�·��
-	Route::controller("/admin/user","UserController");
-	//��Ʒ����·��
+	// 分类的路由
 	Route::controller("/admin/cate","CatesController");
-	//��Ʒ����·��
-	Route::resource("/admin/article","ArticleController");
-	// ��Ʒ��·��
+	// 商品的路由
 	Route::controller("/admin/good","GoodsController");
-	// ���͵�·��
+	// 类型的路由
 	Route::controller("/admin/type","TypesController");
-	// Ʒ�Ƶ�·��
+	// 品牌的路由
 	Route::controller("/admin/brand","BrandsController");
-
+	// 属性的路由
+	Route::controller("/admin/attr","AttrsController");
+	// 属性值的路由
+	Route::controller("/admin/attrValue","AttrValuesController");
+	// 规格的路由
+	Route::controller("/admin/spec","SpecsController");
+	// 规格值的路由
+	Route::controller("/admin/specValue","SpecValuesController");
+	// 参数的路由
+	Route::controller("/admin/param","ParamsController");
+	// 库存的路由
+	Route::controller("/admin/store","StoresController");
 
 });
 

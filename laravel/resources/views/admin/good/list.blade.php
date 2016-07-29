@@ -7,7 +7,7 @@
 <div class="mws-panel grid_8">
   <div class="mws-panel-header">
     <span style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0)">
-      <i class="icon-table"></i>类型列表</span>
+      <i class="icon-table"></i>商品列表</span>
   </div>
   <div class="mws-panel-body no-padding">
     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
@@ -28,21 +28,27 @@
       <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
         <thead>
           <tr role="row">
-            <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 30px;">类型ID</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 70px;">类型名</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 40px;">状态</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 150px;">操作</th></tr>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 100px;">商品名称</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 100px;">商品所属类型</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 100px;">商品所属分类</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 100px;">商品所属品牌</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 80px;">商品状态</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 140px;">操作</th></tr>
         </thead>
         <tbody role="alert" aria-live="polite" aria-relevant="all">
-          @foreach($types as $k=>$v)
+          @foreach($goods as $k=>$v)
          	<tr class="@if($k%2 == 0) even @else odd @endif" style="text-align:center">
-            	<td class=" sorting_1">{{$v->id}}</td>
-	            <td class=" ">{{$v->name}}</td>
+              <td class=" ">{{$v->name}}</td>
+              <td class=" ">{{$v->type->name}}</td>
+              <td class=" ">{{$v->cate->name}}</td>
+	            <td class=" ">@if(!empty($v->brand_id)) {{$v->brand->name}} @else 无 @endif</td>
 	            <td class=" "><input cid="{{$v->id}}" class="ibutton" type="checkbox" @if($v->status==1) checked="checked" @endif ></td>
 	            <td class=" ">
 	            	<span class="btn-group" >
-	                    <a href="/admin/good/type-edit?id={{$v->id}}" class="btn btn-small"><i class="icon-pencil"></i>  编辑</a>
-                      <a href="/admin/good/type-delete?id={{$v->id}}" class="btn btn-small"><i class="icon-trash"></i>  删除</a>
+                      <a href="/admin/store/add?id={{$v->id}}" class="btn btn-small"><i class="icon-plus"></i> 添加到库存</a>
+                      <a href="/admin/good/detail?id={{$v->id}}" class="btn btn-small"><i class="icon-search"></i> 详情</a>
+                      <a href="/admin/good/edit?id={{$v->id}}" class="btn btn-small"><i class="icon-pencil"></i> 编辑</a>
+                      <a href="/admin/good/delete?id={{$v->id}}" class="btn btn-small" name="delete"><i class="icon-trash"></i> 删除</a>
 	                </span>
               </td>
             </tr>
@@ -52,7 +58,7 @@
 
         <div style="padding-left:0px;margin-right:0px;" class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
           <div id="pages">
-            {!! $types->appends($request->all())->render() !!}      
+            {!! $goods->appends($request->all())->render() !!}      
           </div>
         </div>
         <style type="text/css">
@@ -190,7 +196,7 @@
             var id = $(this).find("input").attr("cid");
 
             //发送ajax
-            $.get("/admin/type/ajax-update",{id:id,status:status},function(data){
+            $.get("/admin/good/ajax-update",{id:id,status:status},function(data){
                 if(data == '1'){
                   alert("更改成功");
                 }else{
@@ -199,5 +205,12 @@
             });
         })
     })
-    </script>
+
+
+    $("a[name=delete]").click(function(){
+      var sure = confirm("您确定要删除此项吗?");
+      if(sure) return true;
+      return false;
+    });
+</script>
 @endsection

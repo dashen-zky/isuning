@@ -5,6 +5,11 @@
 <link rel="shortcut icon" href="http://localhost/isuning/laravel/public/favicon.ico" type="image/x-icon">
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+@section("myCss")
+
+@show
+
 @section("css")
 
 <!-- Plugin Stylesheets first to ease overrides -->
@@ -230,13 +235,6 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-                    <li>
-                        <a href="#"><i class="icon-users"></i> 用户管理</a>
-                        <ul class="closed">
-                            <li><a href="/admin/user/add">用户添加</a></li>
-                            <li><a href="/admin/user/list">用户列表</a></li>
-                        </ul>
-                    </li>
 
                     <li>
                         <a href="#"><i class="icon-list"></i> 商品分类</a>
@@ -246,39 +244,54 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="icon-list"></i> 商品管理</a>
-                        <ul class="closed ">
-                            <li><a href="/admin/good/add">商品添加</a></li>
-                            <li><a href="/admin/good/index">商品列表</a></li>
-                            <li><a href="/admin/spec/add">规格添加</a></li>
-                            <li><a href="/admin/spec/index">规格列表</a></li>
-                            <li><a href="/admin/atrr/add">属性添加</a></li>
-                            <li><a href="/admin/attr/index">属性列表</a></li>
-                        </ul>
-                    </li>
-        
-                    <li>
-                        <a href="#"><i class="icon-list"></i>　类型管理</a>
+                     <li>
+                        <a href="#"><i class="icon-list"></i> 类型管理</a>
                         <ul>
                             <li><a href="/admin/type/add">类型添加</a></li>
                             <li><a href="/admin/type/index">类型列表</a></li>
                         </ul>
                     </li>
-
+                    
                     <li>
-                        <a href="#"><i class="icon-list"></i>　品牌管理</a>
+                        <a href="#"><i class="icon-list"></i> 品牌管理</a>
                         <ul>
                             <li><a href="/admin/brand/add">品牌添加</a></li>
                             <li><a href="/admin/brand/index">品牌列表</a></li>
                         </ul>
                     </li>
+                    
+                     <li>
+                        <a href="#"><i class="icon-list"></i> 销售属性管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/attr/add">属性添加</a></li>
+                            <li><a href="/admin/attr/index">属性列表</a></li>
+                            <li><a href="/admin/attrValue/add">属性值添加</a></li>
+                            <li><a href="/admin/attrValue/index">属性值列表</a></li>
+                        </ul>
+                    </li>
+
+                     <li>
+                        <a href="#"><i class="icon-list"></i> 规格与参数管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/spec/add">规格添加</a></li>
+                            <li><a href="/admin/spec/index">规格列表</a></li>
+                            <li><a href="/admin/param/add">参数添加</a></li>
+                            <li><a href="/admin/param/index">参数列表</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 商品管理</a>
+                        <ul class="closed ">
+                            <li><a href="/admin/good/add">商品添加</a></li>
+                            <li><a href="/admin/good/index">商品列表</a></li>
+                        </ul>
+                    </li>
 
                     <li>
-                        <a href="#"><i class="icon-list"></i> 文章管理</a>
-                        <ul class="closed">
-                            <li><a href="/admin/article/create">文章添加</a></li>
-                            <li><a href="/admin/article">文章列表</a></li>
+                        <a href="#"><i class="icon-list"></i> 库存管理</a>
+                        <ul class="closed ">
+                            <li><a href="/admin/store/index">库存列表</a></li>
                         </ul>
                     </li>
 
@@ -353,6 +366,10 @@
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.dashboard.js"></script>
     <script src="/admins/js/demo/demo.table.js"></script>
+    @show
+    
+    @section("myJs")
+
     @show
 </body>
 </html>

@@ -1,13 +1,47 @@
-@extends("layout.admin")
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404</title>
 
-@section('title','页面不存在')
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-@section('content')
-<div class="container">
-	<div id="mws-error-page">
-        <h1>错误 页面不存在</h1>
-        <h5>Oopss... this is embarassing, either you tried to access a non existing page, or our server has gone crazy.</h5>
-        <p><a href="/admin">点击 这里</a> 回到后台主页</p>
-    </div>
-</div>
-@endsection
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Lato';
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">404</div>
+            </div>
+        </div>
+    </body>
+</html>

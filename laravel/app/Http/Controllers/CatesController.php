@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Cate;
 use App\Http\Requests;
 use App\Http\Requests\InsertCateRequest;
 use App\Http\Requests\UpdateShopTypeRequest;
@@ -13,14 +14,14 @@ class CatesController extends Controller
 {
     //成员属性
     public $tableName = "cates";
-    public $types = [];
+    public $cates = [];
 
     /**
      * 分类添加显示页面
      */
     public function getAdd()
     {
-        // dd($type);
+        // dd($cate);
         return view("admin.cate.add",[
             'title'=>"添加分类",
             ]);
@@ -29,19 +30,19 @@ class CatesController extends Controller
 
     public static function getFen()
     {
-        $type = DB::table("cates")
+        $cate = DB::table("cates")
             ->select(DB::raw('*,concat("path",",","id") as paths'))
             ->orderBy("paths")
             ->get();
         
-        foreach ($type as $key => $value) {
+        foreach ($cate as $key => $value) {
             // 拆分数组
             $arr = explode(',',$value->path);
             $num = count($arr)-1;
             $prefix = str_repeat("---|",$num);
             $value->name = $prefix.$value->name;
         }
-        return $type;
+        return $cate;
     }
 
     /**
@@ -54,7 +55,12 @@ class CatesController extends Controller
         //判断是否为顶级分类
         $data = $this->getData($data);
         //执行数据库插入
-        if(DB::table($this->tableName)->insert($data)){
+        $cate = new Cate;
+        $cate->name = $data["name"];
+        $cate->pid = $data["pid"];
+        $cate->path = $data["path"];
+        $cate->status = $data["status"];
+        if($cate->save()){
             return redirect("/admin/cate/index")->with("success","添加成功");
         }else{
             return back()->with("error","添加失败");
@@ -73,9 +79,12 @@ class CatesController extends Controller
             $data["path"] = '0';
         }else{
             // 读取父类的分类
-            $fen = DB::table($this->tableName)->where('id',$data["pid"])->first();
-            //拼接path路径
-            $data["path"] = $fen->path.",".$fen->id;
+            $fen = Cate::find($data["pid"]);
+            $fen->count = $fen->count + 1;
+            if($fen->save()){
+                //拼接path路径
+                $data["path"] = $fen->path.",".$fen->id;
+            }
         }
         return $data;
     }
@@ -85,33 +94,44 @@ class CatesController extends Controller
      */
     public function getIndex(Request $request)
     {
-          //数据读取
-        $types = DB::table($this->tableName.' as a')
+        //数据读取
+        $cates = DB::table($this->tableName.' as a')
             ->select(DB::raw('a.*,b.name as names,concat(a.path,",",a.id) as paths'))
             ->leftJoin($this->tableName.' as b','a.pid','=','b.id')
             ->orderBy('paths')
             ->where(function($query)use($request){
                 if(!empty($request)){
-                    $query->where('a.name','like','%'.$request->input('keywords').'%');
+                    $query->where('a.name','like','%'.$request->input('search').'%');
                 }
             })
             ->paginate($request->input('num', 10));
+        // dd($cates);
 
-        foreach ($types as $key => $value) {
+        foreach ($cates as $key => $value) {
             //拆分数组
             $arr = explode(',', $value->path);
+            // dd($arr);
             $num  = count($arr)-1;
             $prefix = str_repeat('|-----', $num);
-            $value -> name = $prefix. $value->name;
+            $value ->name = $prefix. $value->name;
+            $str = "----顶级";
+            foreach($arr as $kk=>$vv ){
+                if($vv != 0){
+                    $str .= "----".DB::table("cates")->find($vv)->name;
+                }
+            }
+            $value->path = $str;
         }
+
         //模板解析
         return view('admin.cate.list', [
-            'types'=>$types,
+            'cates'=>$cates,
             'title'=>'分类列表',
-            'request' => $request
-        ]);
+            'request' => $request,
 
+        ]);
     }
+
 
     /**
      * 分类的编辑页面
@@ -119,9 +139,9 @@ class CatesController extends Controller
     public function getEdit(Request $request)
     {
         // 读取当前表中的信息
-        $type = DB::table($this->tableName)->where('id',$request->input("id"))->first();
+        $cate = DB::table($this->tableName)->where('id',$request->input("id"))->first();
         // 判断
-        if(empty($type)){
+        if(empty($cate)){
             abort("404");
         }
         //获取 所有 的 分类名
@@ -129,7 +149,7 @@ class CatesController extends Controller
         // dd($info);
         return view("admin.cate.edit" ,[
             "title"=>"分类修改",
-            "type"=>$type,
+            "cate"=>$cate,
             "info"=>$info,
         ]);
     }
@@ -160,16 +180,31 @@ class CatesController extends Controller
     {
         // 分类获取 
         $id = $request->input("id");
-        //获取path
-        $type = DB::table($this->tableName)->where("id",$id)->first();
-        $prefix = $type->path.",".$type->id;
-        //删除子类
-        DB::table($this->tableName)->where("path","like",$prefix."%");
-        //
-        if(DB::table($this->tableName)->where("id",$id)->delete()){
-            return back()->with("success","删除成功");
+        // dd($id);
+        $fulei = Cate::find(Cate::find($id)->pid);
+        // dd($fulei);
+        if($fulei){
+            $fulei->count = $fulei->count - 1;
+
+            DB::beginTransaction();
+            if($fulei->save()){
+                if(Cate::where("id",$id)->delete()){
+                    DB::commit();
+                    return back()->with("success","删除成功");
+                }else{
+                    DB::rollback();
+                    return back()->with("error","删除失败");
+                }
+            }else{
+                DB::rollback();
+                return back()->with("error","删除失败");
+            }
         }else{
-            return back()->with("error","删除失败");
+            if(Cate::where("id",$id)->delete()){
+                return back()->with("success","删除成功");
+            }else{
+                return back()->with("error","删除失败");
+            }
         }
     }
 

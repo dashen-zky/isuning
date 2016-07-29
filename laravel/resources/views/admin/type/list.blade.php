@@ -41,8 +41,8 @@
 	            <td class=" "><input cid="{{$v->id}}" class="ibutton" type="checkbox" @if($v->status==1) checked="checked" @endif ></td>
 	            <td class=" ">
 	            	<span class="btn-group" >
-	                    <a href="/admin/good/type-edit?id={{$v->id}}" class="btn btn-small"><i class="icon-pencil"></i>  编辑</a>
-                      <a href="/admin/good/type-delete?id={{$v->id}}" class="btn btn-small"><i class="icon-trash"></i>  删除</a>
+	                    <a href="/admin/type/edit?id={{$v->id}}" class="btn btn-small"><i class="icon-pencil"></i>  编辑</a>
+                      <a href="/admin/type/delete?id={{$v->id}}" class="btn btn-small"  name="delete"><i class="icon-trash"></i>  删除</a>
 	                </span>
               </td>
             </tr>
@@ -199,5 +199,12 @@
             });
         })
     })
+
+
+    $("a[name=delete]").click(function(){
+      var sure = confirm("您确定要删除此项吗?");
+      if(sure) return true;
+      return false;
+    });
     </script>
 @endsection

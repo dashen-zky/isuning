@@ -30,12 +30,12 @@
             <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 30px;">分类ID</th>
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 70px;">分类名</th>
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">父类名</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">路径</th>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 150px;">路径</th>
             <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 40px;">状态</th>
-            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 150px;">操作</th></tr>
+            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 100px;">操作</th></tr>
         </thead>
         <tbody role="alert" aria-live="polite" aria-relevant="all">
-          @foreach($types as $k=>$v)
+          @foreach($cates as $k=>$v)
          	<tr class="@if($k%2 == 0) even @else odd @endif">
             	<td class=" sorting_1">{{$v->id}}</td>
 	            <td class=" ">{{$v->name}}</td>
@@ -45,7 +45,9 @@
 	            <td class=" ">
 	            	<span class="btn-group" >
 	                    <a href="/admin/cate/edit?id={{$v->id}}" class="btn btn-small"><i class="icon-pencil"></i>  编辑</a>
-                      <a href="/admin/cate/delete?id={{$v->id}}" class="btn btn-small"><i class="icon-trash"></i>  删除</a>
+                      @if($v->count == 0)
+                      <a href="/admin/cate/delete?id={{$v->id}}" class="btn btn-small" name="delete" cid="{{$v->id}}"><i class="icon-trash"></i>  删除</a>
+                      @endif
                       <a href="/admin/cate/add-sub?id={{$v->id}}" class="btn btn-small"><i class="icon-plus-sign"></i> 添加子分类</a>
 	                </span>
               </td>
@@ -56,7 +58,7 @@
 
         <div style="padding-left:0px;margin-right:0px;" class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
           <div id="pages">
-            {!! $types->appends($request->all())->render() !!}      
+            {!! $cates->appends($request->all())->render() !!}      
           </div>
         </div>
         <style type="text/css">
@@ -203,5 +205,11 @@
             });
         })
     })
-    </script>
+
+    $("a[name=delete]").click(function(){
+      var sure = confirm("您确定要删除此项吗?");
+      if(sure) return true;
+      return false;
+    });
+</script>
 @endsection

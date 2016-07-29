@@ -29,7 +29,7 @@ class TypeRequest extends Request
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             "name.required"=>"类型名不能空",
