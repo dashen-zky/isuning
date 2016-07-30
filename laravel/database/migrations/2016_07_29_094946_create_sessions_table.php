@@ -12,11 +12,11 @@ class CreateSessionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->unique();
-            $table->text('payload');
-            $table->integer('last_activity');
-        });
+        // Schema::create('sessions', function (Blueprint $table) {
+        //     $table->string('id')->unique();
+        //     $table->text('payload');
+        //     $table->integer('last_activity');
+        // });
     }
 
     /**
@@ -26,6 +26,6 @@ class CreateSessionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('sessions');
+        // Schema::drop('sessions');
     }
 }

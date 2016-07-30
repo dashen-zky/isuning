@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -114,20 +113,5 @@ class AdminController extends Controller
         
     }
     
-=======
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-class AdminController extends Controller
-{
-    //后台 主页
-    public function index()
-    {
-    	return view('admin.index');
-    }
-
-    // public function 
-
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 }

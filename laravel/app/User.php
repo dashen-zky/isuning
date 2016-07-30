@@ -2,20 +2,10 @@
 
 namespace App;
 
-<<<<<<< HEAD
+
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
-{
-    public function detail()
-    {
-    	return $this->hasOne('App\Detail');
-    }
-    /*****************
-    **********************/
-=======
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -33,6 +23,12 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
+
+    public function detail()
+    {
+        return $this->hasOne('App\Detail');
+    }
+    
     protected $table = 'users';
 
     /**
@@ -48,5 +44,5 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+
 }

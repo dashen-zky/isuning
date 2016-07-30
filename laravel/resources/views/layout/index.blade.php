@@ -6,124 +6,101 @@
 <title>@yield("title")</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
+<link rel="stylesheet" href="/homes/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/homes/bootstrap/css/bootstrap-theme.min.css">
 <link href="/homes/css/css.css" rel="stylesheet">
-<<<<<<< HEAD
-<style type="text/css">
-    .w1210{
-        position:absolute;
-        left:100px;
-    }
-
-    .remind{
-        /*float:left;*/
-        width:100px;
-        height:100px;
-        position:relative;
-        left:440px;
-        top:0px;
-        background:#F1F1F1;
-        z-index:99999999;
-    }
-</style>
-=======
 @section("myCss")
-
+<link href="/homes/css/myCss.css" rel="stylesheet">
 @show
 
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 </head>
 <body>
 <!-- 头部 -->
 <div class="jd_header">
-	<div class="jd_top">
-		<div class="w1210 clearfix">
-			<span class='head_pos'>送至：北京<i class="arrow"></i></span>	
-			<ul class="head_list clearfix">
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>我的订单</span></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>我的京东</span><i class="arrow"></i></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>京东会员</span></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>企业采购</span></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><i class="phone"></i><span>手机京东</span><i class="arrow"></i></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>关注京东</span><i class="arrow"></i></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>客户服务</span><i class="arrow"></i></a></li>
-				<li class="line"></li>
-				<li class="item"><a href="#" target="_blank"><span>网站导航</span><i class="arrow"></i></a></li>
-			</ul>
-<<<<<<< HEAD
-            @if(session('username'))
-               <span id="isu" class="head_login_tips head_pos">{{session('username')}}&nbsp&nbsp&nbsp<span>您好</span><i class="arrow"></i></span> 
-               <div  id="isc" class="remind" style="clear:both;display:none;"><br><a href="/person"><span>账号管理</span></a><br><br><a href="/login"><span>退出</span></a></div>
-            @else
-			   <span class="head_login_tips"><a href="/login">你好，请登录</a><a href="register" target="_blank">免费注册</a></span>
-            @endif
-=======
-			<span class="head_login_tips">你好，请登录<a href="#" target="_blank">免费注册</a></span>
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
-		</div>
-	</div>
-	<div class="head_ad">
-		<div class="head_ad_box">
-<<<<<<< HEAD
-			<a href="#" target="_blank"><img src="/homes/images/head_ad.png" alt=""></a>
-=======
-			<a href="#" target="_blank"><img src=".//homes/images/head_ad.png" alt=""></a>
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
-		</div>
-	</div>
-</div>
-<div class="head_search">
-<div class="h_logo">
-<<<<<<< HEAD
-<a href="#" target="_blank" class="jd_logo"></a>
-=======
-<a href="http://isuning.com" target="_blank" class="jd_logo"></a>
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
-<span class="jd_slogon"></span>
-</div>
-<div class="search_box">
-<form action="#" method='get'>
-	<input type="text" name='kw'  class="jd_search">
-	<button class="jd_btn">搜索</button>
-</form>
-</div>
-            <div class="index_car">
-                    <a href="#" target="_blank" class="index_car_link">
-                        <i class="car"></i>
-                        我的购物车
-                        <i class="arrow">&gt;</i>
-                        <i class="tips">0</i>
-                    </a>
-            </div>
-            <ul class="index_link_">
-                <li><a href="#" target="_blank" class="active">9.9抢大牌</a></li>
-                <li><a href="#" target="_blank">两件</a></li>
-                <li><a href="#" target="_blank">9.9抢大牌</a></li>
-                <li><a href="#" target="_blank">9.9抢大牌</a></li>
-                <li><a href="#" target="_blank">9.9抢大牌</a></li>
+    <div class="jd_top">
+        <div class="w1210 clearfix">
+            <span class='head_pos'>送至：北京<i class="arrow"></i></span>    
+            <ul class="head_list clearfix">
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>我的订单</span></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>我的京东</span><i class="arrow"></i></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>京东会员</span></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>企业采购</span></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><i class="phone"></i><span>手机京东</span><i class="arrow"></i></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>关注京东</span><i class="arrow"></i></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>客户服务</span><i class="arrow"></i></a></li>
+                <li class="line"></li>
+                <li class="item"><a href="#" target="_blank"><span>网站导航</span><i class="arrow"></i></a></li>
             </ul>
+            <span class="head_login_tips">你好，请登录<a href="#" target="_blank">免费注册</a></span>
+        </div>
+    </div>
+    <div class="head_ad">
+        <div class="head_ad_box">
+            <a href="#" target="_blank"><img src="/homes/images/head_ad.png" alt=""></a>
+        </div>
+    </div>
+</div>
+    <div class="head_search">
+    <div class="h_logo">
+    <a href="http://isuning.com" target="_blank" class="jd_logo"></a>
+    <span class="jd_slogon"></span>
+    </div>
+    <div class="search_box">
+    <form action="#" method='get'>
+        <input type="text" name='kw'  class="jd_search">
+        <button class="jd_btn">搜索</button>
+    </form>
+    </div>
+    <div class="index_car">
+            <a href="#" target="_blank" class="index_car_link">
+                <i class="car"></i>
+                我的购物车
+                <i class="arrow">&gt;</i>
+                <i class="tips">0</i>
+            </a>
+    </div>
+    <div style="position:relative;left:365px">
+        <ul class="index_link_">
+            <li><a href="#" target="_blank" class="active">9.9抢大牌</a></li>
+            <li><a href="#" target="_blank">两件</a></li>
+            <li><a href="#" target="_blank">9.9抢大牌</a></li>
+            <li><a href="#" target="_blank">9.9抢大牌</a></li>
+            <li><a href="#" target="_blank">9.9抢大牌</a></li>
+        </ul>
+    </div>
 </div>
 
-<<<<<<< HEAD
-@section("content")
-=======
 @section("jd_nav")
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <div id="jd_nav">
         <div class="w1210 clearfix">
                 <div id="nav_side" class="nav_span">
                     <div class="nav_all"><a href="#" target="_blank" class="all">全部商品分类</a><i class="arrow"><span>◇</span></i></div>
                     <div class="nav_detail">
                         <ul class="nav_title">
-                            <li><h3><a href="#" target="_blank">家用电器</a></h3><i class='arrow'>&gt;</i></li>
+                        <li style="display:block" class="cate_id" cid=""><h3><a href="javascript:;" target="_blank" style="line-height:31px"></a></h3><i class='arrow'>&gt;</i></li>
+                            <div class="cateBox" style="display:none">
+                                <div class="hang">
+                                    <div class="catelist catelist1"><b></b></div>
+                                    <div class="catelist">
+                                        
+                                        <span><a href="/list?cate_id=" style="color:#666;font-size:12px"></a></span>
+                                      
+                                        <span><a href="/list?cate_id=" style="color:#666;font-size:12px"></a></span>
+
+                                    </div>
+                                </div>
+                            
                         </ul>
-                        <div class="out"></div>
+                        <div class="out">
+                        </div>
+
                     </div>
                 </div>
                 <div class="nav_main">
@@ -136,24 +113,40 @@
                 </div>
         </div>
 </div>
-<<<<<<< HEAD
 
-=======
 @show
 
+
+
 @section("content")
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <!-- banner -->
 <div id="banner">
     <div class="ban_box">
-        <div class="ban_main">
-                <ul>
-                    <li></li>
-                </ul>
-                <ol>
-                    <li></li>
-                </ol>
-        </div>      
+        <div class="ban_main ">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                       
+                        <li class="" data-target="#carousel-example-generic" data-slide-to=""></li>
+                       
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                      
+                        <div class="item">
+                            <img data-holder-rendered="true" src="" data-src="slide" alt="Second slide [900x500]">
+                        </div>
+                      
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+        </div> 
+
         <div class="ban_extra">
                 <dl>
                     <dt>京东快报<a href="#" target="_blank">更多 &gt;</a></dt>
@@ -169,7 +162,18 @@
                 </dl>
                 <div class="jd_sort">
                         <ul>
-                            <li class="item"><a href="#" target="_blank"><i class="icon1"></i><span>话费</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon1"></i><span>话费</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon2"></i><span>机票</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon3"></i><span>电影票</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon4"></i><span>游戏</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon5"></i><span>彩票</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon6"></i><span>团购</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon7"></i><span>酒店</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon8"></i><span>火车票</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon9"></i><span>众筹</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon10"></i><span>理财</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon11"></i><span>礼品卡</span></a></li>
+                            <li class="item"><a href="javascript:;" target="_blank"><i class="icon12"></i><span>白条</span></a></li>
                         </ul>
                 </div>
                 <div class="ban_ad">
@@ -181,147 +185,31 @@
 <!-- 今日推荐 --> 
 <div id="today_tj">
     <div id="todays">
+
     </div>
     <div class="today_slide">
         <ul class="slide_main" style="width:2000px;">
             <li class="item">
                 <div class="item_data">
-                    <a href="#" target="_blank"><img src="/homes/images/product/tj1.jpg" alt=""></a>
+                    <a href="javascript:;" target="_blank"><img src="/homes/images/product/tj1.jpg" alt=""></a>
                 </div>
-            <li class="item">
                 <div class="item_data">
-                    <a href="#" target="_blank"><img src="/homes/images/product/tj5.jpg" alt=""></a>
+                    <a href="javascript:;" target="_blank"><img src="/homes/images/product/tj2.jpg" alt=""></a>
+                </div>
+                <div class="item_data">
+                    <a href="javascript:;" target="_blank"><img src="/homes/images/product/tj3.jpg" alt=""></a>
+                </div>
+                <div class="item_data">
+                    <a href="javascript:;" target="_blank"><img src="/homes/images/product/tj4.jpg" alt=""></a>
                 </div>
             </li>
         </ul>
     </div>
 </div>
-<<<<<<< HEAD
-<!-- 猜你喜欢 -->
-<div class="hobby">
-    <div class="title">
-            <h2>猜你喜欢</h2>
-            <a href="javascript:;">换一批</a>
-            <div class="line"></div>
-    </div>
-    <div class="hoby_content">
-        <div class="hoby_tag">
-            <h3>发现你的喜欢</h3>
-            <ul class="tag_list">
-                <li class="item"><a href="#" target="_blank">型男</a></li>
-            </ul>
-        </div>
-        <div class="hoby_list">
-            <ul>
-                <li>
-                    <a href="#" target="_blank" class="block">
-                        <img src="/homes/images/like1.jpg" alt="手表">
-                        <p class='info'>Apple Watch Sport 智能手表(38毫米银色铝金属表壳搭配橙色运动型表带 MLCF2CH/A)</p>
-                        <p class="price"><i>￥</i>2288.00</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-</div>
-<!-- 京东 · 品质生活 -->
-<div class="jd_life">
-        <div class="title">
-            <h2>京东 · 品质生活</h2>
-        </div>
-        <div class="life_content">
-            <div class="life_col1">
-                <a href="#" target="_blank" class="life_item1">
-                    <h3 class="item_tit">新发现</h3>
-                    <div class="sub_tit">
-                            <p class="tit">新品尖货</p>
-                            <p class="info">ThinkPad 读懂你的笔记</p>
-                            <p class="pro">同步手机随机随想即写即录</p>
-                    </div>
-                    <img src="/homes/images/pzsh1.jpg" alt="">
-                </a>
-                <a href="#" target="_blank" class="life_item2">
-                    <div class="sub_tit">
-                            <p class="tit">新品尖货</p>
-                            <p class="info">ThinkPad 读懂你的笔记</p>
-                            <p class="pro">同步手机随机随想即写即录</p>
-                    </div>
-                    <img src="/homes/images/pzsh2.jpg" alt="">
-                </a>
-                <a href="#" target="_blank" class="life_item2">
-                    <div class="sub_tit">
-                            <p class="tit">新先购</p>
-                            <p class="info">白落梅深情书写</p>
-                            <p class="pro">仓央嘉措诗传</p>
-                    </div>
-                    <img src="/homes/images/pzsh3.jpg" alt="">
-                </a>
-            </div>
-            <div class="life_col2"> 
-                <a href="#" target="_blank" class="life_item1">
-                    <h3 class="item_tit">好物100</h3>
-                    <div class="sub_tit">
-                            <p class="tit">各系潮流</p>
-                            <p class="info">ThinkPad </p>
-                            <p class="pro">同步手机随机</p>
-                    </div>
-                    <img src="/homes/images/pzsh12.jpg" alt="">
-                </a>
-                <a href="#" target="_blank" class="life_item2">
-                    <div class="sub_tit">
-                            <p class="tit">新奇好货</p>
-                            <p class="info">沙滩野车摩托车</p>
-                            <p class="pro">玩转个性潮流</p>
-                    </div>
-                    <img src="/homes/images/pzsh4.jpg" alt="">
-                </a>
-            </div>
-            <div class="life_col3">
-                <a href="#" target="_blank" class="life_item1">
-                    <h3 class="item_tit">品牌街</h3>
-                    <div class="sub_tit">
-                            <p class="tit">运动大牌</p>
-                            <p class="info">联合上新</p>
-                            <p class="pro">新品低至6折</p>
-                    </div>
-                    <img src="/homes/images/pzsh5.jpg" alt="">
-                </a>
-                <a href="#" target="_blank" class="life_item2">
-                    <div class="sub_tit">
-                            <p class="tit">国际大牌</p>
-                            <p class="info">哥伦比亚轻彩户外</p>
-                            <p class="pro">全场低至69元</p>
-                    </div>
-                    <img src="/homes/images/pzsh6.jpg" alt="">
-                </a>
-                <a href="#" target="_blank" class="life_item2">
-                    <div class="sub_tit">
-                            <p class="tit">科技精品</p>
-                            <p class="info">玩科技</p>
-                            <p class="pro">折叠摩托车</p>
-                    </div>
-                    <img src="/homes/images/pzsh7.jpg" alt="">
-                </a>
-            </div>
-            <!-- /*品质生活 右侧品牌推荐*/ -->
-            <div class="life_rec">
-                <ul>
-                    <li><a href="#" target="_blank"><img src="/homes/images/pztj1.jpg" alt=""></a></li>
-                </ul>
-            </div>
-        </div>
-</div>
-=======
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <!-- floor-1 -->
 <div class="jd_floor">
     <div class="title">
             <h2><i>1F</i>服装鞋包</h2>
-            <ul class="tabs">
-                <li class="active"><a href="javascript:;">大牌</a><i></i></li>
-                <li><a href="javascript:;">男装</a><i></i></li>
-            </ul>
     </div>
     <div class="aside">
         <div class="aside_sort">
@@ -445,22 +333,10 @@
         </ul>
     </div>
 </div>
-<<<<<<< HEAD
-<!-- 绑定js-->
-<script type="text/javascript" src="/homes/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript">
-    //绑定事件
-    $('#isu').mouseover(function(){
-           // 添加一个新的class
-        $(this).next().show();
-    })
-    //绑定事件
-    $('#isu').click(function(){
-        $(this).next().hide();
-    })
-
-</script>
-=======
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+<!-- <script type="text/javascript" src="/homes/js/jquery-1.8.3.min.js"></script> -->
+<script type="text/javascript" src="/homes/bootstrap/js/jquery.min.js"></script>
+<script type="text/javascript" src="/homes/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/homes/bootstrap/js/holder.js"></script>
+<script type="text/javascript" src="/homes/js/cate.js"></script>
 </body>
 </html>

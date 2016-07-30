@@ -16,7 +16,7 @@ class CreateOrderGoodsTable extends Migration
         //     $table->increments('id');
         //     $table->integer('order_id')->comment('订单id');
         //     $table->integer('goods_id')->comment('商品id');
-        //     $table->integer('total')->comment('数量');
+        //     $table->integer('num')->comment('数量');
         //     $table->string('detail')->comment('下单的商品详情');
         //     $table->timestamps();
         // });

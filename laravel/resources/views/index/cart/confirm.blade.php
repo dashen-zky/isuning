@@ -17,9 +17,14 @@
 	}
 
 </style>
+
+@section("jd_nav")
+<div id="jd_nav"></div>
+@endsection
+
 @section('content')
 <section id="content" style="margin-left:110px">
-	<h2 style="font-size:17px;color:red">请选择收货地址:</h2><br>
+	<h2 style="font-size:17px;color:red;">请选择收货地址:</h2><br>
 	<div id="addresses">
 		@foreach($address as $k=>$v)
 		<div class="addr addr-cur addr-def address-option-binded" tabindex="1">
@@ -107,10 +112,74 @@
 	        </div>
 	    </div>
 
-	<h2 style="font-size:17px;color:red">订单详细信息:</h2>
+	<h2 style="font-size:17px;color:red;margin-top:30px;">订单详细信息:</h2>
+	<div class="car_wrap" style="float:left ">
+	<div class="car_table">
+		<div class="car_all">
+			<div class="d1">
+				<input type="checkbox"><span>全选</span>
+			</div>
+			<div class="d2">
+				<span>商品</span>
+			</div>
+			<div class="d3">
+				<span>数量</span>
+			</div>
+			<div class="d4">
+				<span>小计</span>
+			</div>
+			<div class="d5">
+				<span>操作</span>
+			</div>
+		</div>
+	<!-- 提交购物车中的信息-->
+		<form action="/index/cart/confirm" method="post">
+			<div class="car_list">
+				@foreach($goods as $k=>$v)		
+				<dl class="car_item">
+					<dd class="ck"> <input type="checkbox" name="" value="{{$v['id']}}"> </dd>
+					<dt  class="img"> 
+						<a href="#" class="ob_img">
+							<img src="" alt="">
+						</a>
+					</dt>
+					<dd class="title">
+						<a href="#"></a>
+					</dd>
+					<dd class="size">
+						@foreach($v as $kk=>$vv)@if(!($kk == "price" || $kk == "num" || $kk == "id"))
+						<p class="text">{{$kk}}: {{$vv}}</p>
+						@endif @endforeach
+					</dd>
+					<dd class="price">{{$v["price"]}}</dd>
+					<dd class="number">
+						<p class="add">
+							<input type="text" name="" value="{{$v['num']}}" class="inp_num">
+						</p>
+						<p class="font">有货</p>
+					</dd>
+					<dd class="all" name="num">{{$v['num']}}</dd>
+					<dd class="all" name="total">{{$v['num']*$v['price']}}</dd>
+					<dd class="do">
+						<a href="javascript:;" class="delete">删除</a><br>
+					</dd>
+				</dl>
+				@endforeach
+				<div class="car_end">
+					<div class="all_fee">
+						<p><span class="font"><b></b></p>
+						<p><span class="font" style="color:red">总价（不含运费):{{$v['num']*$v['price']}}元</span><span id="total" class="price"></span></p>
+					</div>
+					<div class="car_count">
+						已选择<em class="red" id="zl">{{$v['num']}}</em>件商品
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	</div>
 
-
-	<h2 style="font-size:17px;color:red">支付方式:</h2>
+	<h2 style="font-size:17px;color:red;margin-top:200px;margin-right:800px">支付方式:</h2>
 		<form action="/Order/create" method="post">
 			<ul class="list-unstyled list-inline">
 				<li><input type="radio" name="paytype" value="支付宝">支付宝</li>

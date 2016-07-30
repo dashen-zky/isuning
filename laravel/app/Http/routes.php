@@ -11,13 +11,11 @@
 |
 */
 
-<<<<<<< HEAD
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index',["title"=>"京东首页"]);
 });
+
 /**************************　 前台用户管理    *******************************/
-//前台首页
-Route::get('/index','Usercontroller@index');
 //用户的注册页面
 Route::get('/register','UserController@register');
 //用户注册提交信息
@@ -46,8 +44,8 @@ Route::post('/reset','UserController@doreset');
 Route::get('/person','UserController@Person');
 Route::post('/person','UserController@doPerson');
 
-//订单
-Route::get('index/cart/confirm','CartController@confirm');
+//购物车提交订单
+Route::post('/index/cart/confirm','CartController@confirm');
 
 //获取省份的信息
 Route::get('/getProvince','AddressController@getProvince');
@@ -60,9 +58,21 @@ Route::get('/getXian','AddressController@getXian');
 Route::post('/insertAddress','AddressController@insertAddress');
 //删除收货地址
 Route::get('/delete','AddressController@delete');
+//路由规则加白名单设置
+Route::get('Order/changeStatus','OrderController@changeStatus');
 
-//提交订单
+//提交订单操作
 Route::post('/Order/create','OrderController@create');
+
+// 商品的详情
+Route::get("/detail.html","GoodsController@detail");
+// 商品的具体价格等信息等路由
+Route::get("/ajax-detail","GoodsController@ajaxDetail");
+// 商品列表的路由
+Route::get("/list","GoodsController@lieBiao");
+// 商品添加到购物车页面
+Route::post("/index/cart","CartController@add");
+Route::get("/cart","CartController@goodscart");
 
 
 /**************************   后台用户管理    *******************************/
@@ -80,33 +90,6 @@ Route::group(["middleware"=>"login"],function(){
 	Route::controller('/admin/user', 'UserController');
 	//Admind的管理
 	Route::controller('/admin/adminuser','AdminController');
-
-});
-
-	
-=======
-/********************* 前台页面路由 ************************************/
-Route::get('/', function () {
-    return view('home.index',["title"=>"京东首页"]);
-});
-// 商品的详情
-Route::get("/detail.html","Goodscontroller@detail");
-// 商品的具体价格等信息等路由
-Route::get("/ajax-detail","Goodscontroller@ajaxDetail");
-// 商品列表的路由
-Route::get("/list","Goodscontroller@list");
-// 商品添加到购物车页面
-Route::post("/index/cart","CartController@add");
-Route::get("/cart","CartController@goodscart");
-
-
-/********************* 后台路由   **************************************/
-// 后台登录路由
-Route::get("/admin/login","AdminController@login");
-// 后台操作的路由组
-Route::group([],function(){
-	// 后台首页
-	Route::get("/admin","AdminController@index");
 	// 分类的路由
 	Route::controller("/admin/cate","CatesController");
 	// 商品的路由
@@ -131,4 +114,6 @@ Route::group([],function(){
 });
 
 
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+
+
+

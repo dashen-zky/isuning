@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -12,7 +10,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 @section('css')
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +24,6 @@
 
 @section("css")
 
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 <!-- Plugin Stylesheets first to ease overrides -->
 <link rel="stylesheet" type="text/css" href="/admins/plugins/colorpicker/colorpicker.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/custom-plugins/wizard/wizard.css" media="screen">
@@ -52,22 +48,17 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
 @show
-<<<<<<< HEAD
-<link rel="stylesheet" href="/admins/css/my.css">
-=======
-<link rel="stylesheet" type="text/css" href="/admins/css/my.css" >
 
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+<link rel="stylesheet" href="/admins/css/my.css">
+
+<link rel="stylesheet" type="text/css" href="/admins/css/my.css" >
 
 <title>@yield('title')</title>
 
 </head>
 
 <body>
-<<<<<<< HEAD
 
-=======
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
 	<!-- Header -->
 	<div id="mws-header" class="clearfix">
     
@@ -76,16 +67,11 @@
         
         	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         	<div id="mws-logo-wrap">
-<<<<<<< HEAD
-                <span style="font-size:30px;color:white">SuNing</span>
-			</div>
-=======
                 <img src="/admins/images/suning.png" alt="mws admin">
 			</div>
             <div id="mws-logo-wrap">
                 <img src="/admins/images/slogn.jpg" alt="mws admin">
             </div>
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
         </div>
         
         <!-- User Tools (notifications, logout, profile, change password) -->
@@ -113,26 +99,6 @@
                                 </a>
                             </li>
                         	<li class="read">
-                            	<a href="#">
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                            </li>
-                        	<li class="unread">
-                            	<a href="#">
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                            </li>
-                        	<li class="unread">
                             	<a href="#">
                                     <span class="message">
                                         Lorem ipsum dolor sit amet
@@ -172,28 +138,6 @@
                                     </span>
                                 </a>
                             </li>
-                        	<li class="read">
-                            	<a href="#">
-                                    <span class="sender">John Doe</span>
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                            </li>
-                        	<li class="unread">
-                            	<a href="#">
-                                    <span class="sender">John Doe</span>
-                                    <span class="message">
-                                        Lorem ipsum dolor sit amet
-                                    </span>
-                                    <span class="time">
-                                        January 21, 2012
-                                    </span>
-                                </a>
-                            </li>
                         	<li class="unread">
                             	<a href="#">
                                     <span class="sender">John Doe</span>
@@ -224,11 +168,7 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-<<<<<<< HEAD
                        尊敬的管理员:{{session('username')}}
-=======
-                        Hello, John Doe
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
                     </div>
                     <ul>
                     	<li><a href="#">Profile</a></li>
@@ -252,15 +192,10 @@
         
             <!-- Hidden Nav Collapse Button -->
             <div id="mws-nav-collapse">
-<<<<<<< HEAD
-                <span></span>
-                <span></span>
-                <span></span>
-=======
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+
             </div>
             
         	<!-- Searchbox -->
@@ -274,7 +209,6 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-<<<<<<< HEAD
                     <li>
                         <a href="#"><i class="icon-users"></i> 用户管理</a>
                         <ul class="closed">
@@ -284,7 +218,6 @@
                             <li><a href="/admin/adminuser/index">管理员列表</a></li>
                         </ul>
                     </li>
-=======
 
                     <li>
                         <a href="#"><i class="icon-list"></i> 商品分类</a>
@@ -345,14 +278,12 @@
                         </ul>
                     </li>
 
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
                 </ul>
             </div>         
         </div>
         
         <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
-<<<<<<< HEAD
             @if(session('info'))
             <div class="mws-form-message success">
                 {{session('info')}}
@@ -372,42 +303,16 @@
             </div>
             <!-- Inner Container End -->
                        
-=======
-        	<!-- Inner Container Start -->
-            @if(session('error'))
-                <div class="mws-form-message error">
-                      {{session('error')}}
-                </div>
-            @endif
-
-            @if(session('success'))
-                <div class="mws-form-message error">
-                      {{session('success')}}
-                </div>
-            @endif
-            <div class="container">
-                @section("content")
-            
-
-                @show       
-            </div>
-            <!-- Inner Container End -->
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
             <!-- Footer -->
             <div id="mws-footer">
-            	Copyright Your Website 2012. All Rights Reserved.
             </div>
             
         </div>
         <!-- Main Container End -->
         
     </div>
-<<<<<<< HEAD
-    @section('js')
-=======
     
     @section("js")
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
     <!-- JavaScript Plugins -->
     <script src="/admins/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
@@ -432,11 +337,7 @@
     <script src="/admins/plugins/colorpicker/colorpicker-min.js"></script>
     <script src="/admins/plugins/validate/jquery.validate-min.js"></script>
     <script src="/admins/custom-plugins/wizard/wizard.min.js"></script>
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
     <!-- Core Script -->
     <script src="/admins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/admins/js/core/mws.js"></script>
@@ -446,7 +347,7 @@
 
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.dashboard.js"></script>
-<<<<<<< HEAD
+    <script src="/admins/js/demo/demo.table.js"></script>
     @show
 
     @section('myJs')
@@ -454,13 +355,7 @@
     @show
 </body>
 </html>
-=======
-    <script src="/admins/js/demo/demo.table.js"></script>
-    @show
-    
-    @section("myJs")
 
-    @show
 </body>
 </html>
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+

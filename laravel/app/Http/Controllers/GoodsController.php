@@ -102,40 +102,12 @@ class GoodsController extends Controller
     	}
     }
 
-    /**
-     * 商品的修改
-     */
-    // public function 
+
 
     /**************************   前台商品显示    *****************************/
-    // public function detail(Request $request)
-    // {
-        
-    //     // 获取对应的商品
-    //     $good = Good::find($request->input("id"));  
-    //     // dd($good); 
-    //     $stores = Store::where("good_id",$request->input("id"))->get();
-    //     $attrvalues = [];
-    //     foreach($stores as $k=>$v){
-    //         foreach(json_decode($v->detail) as $key=>$value){
-    //             if(!in_array($value,$attrvalues)){
-    //                 $attrvalues[$value] = $key;
-    //             }
-    //         }
-    //         $v->detail = json_decode($v->detail);
-    //     } 
-    //     // dd($attrvalues);
-    //     // 模板解析
-    //     return view("home.good.detail",[
-    //         "title"=>"商品的详情",
-    //         "stores"=>$stores,
-    //         "good"=>$good,
-    //         "attrvalues"=> $attrvalues,
-    //     ]);
-    // }
 
     /**
-     * 前台的页面显示 详情
+     * 前台的页面显示 详情 *****************************************
      */
     public function detail(Request $request)
     {
@@ -160,6 +132,7 @@ class GoodsController extends Controller
             "detail"=>$detail,
         ]);
     }
+
 
     /**
      * ajax 请求 改变 价格 等
@@ -198,10 +171,11 @@ class GoodsController extends Controller
     /**
      * 商品的列表
      */
-    public function list(Request $request)
+    public function lieBiao(Request $request)
     {
         // 获取 分类的信息
         $cate = Cate::find($request->input("cate_id"));
+        // dd();
         $good = Good::where("cate_id",$request->input("cate_id"))->first();
         // dd($good->type->spec);
 
@@ -229,9 +203,6 @@ class GoodsController extends Controller
                         $query->orWhere("good_id",$value->id);
                     }
                 }
-                // if(){
-
-                // }
             )
             ->paginate(4);
         // dd($stores);

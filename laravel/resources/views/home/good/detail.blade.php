@@ -23,7 +23,7 @@
                 </div>
         </div>
 </div>
-@endsecction
+@endsection
 
 @section("content")
 <!-- 详情主体 -->
@@ -252,8 +252,9 @@
 			@endforeach
 			// 发送ajax
 			$.get("/ajax-detail",{id:id,detail:detail},function(data){
-				// console.log(data.price);
+				//console.log(data.price);
 				eval("var data = "+data);
+				console.log(data);
 				// 更改价格
 				$(".summary").find("strong").html('¥ '+data[0].price);
 				$("input[name=price]").val(data[0].price);
