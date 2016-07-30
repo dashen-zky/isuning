@@ -3205,19 +3205,17 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	line-height: 52px;
 	font-size: 20px;
 	color:#fff;
-<<<<<<< HEAD
 }
-.hidden{
+.yincang{
 	display:none;
-	width:400px;
-	height:200px;
+	width:740px;
+	height:483px;
 	position: absolute;
-	margin-top:-30px;
 	left: 210px;
 	z-index: 1;
 	background-color:#FF0000;
 	opacity: 0.8;
-}.nav_detail li.hover,.nav_detail li:hover .hidden{
+}.nav_detail li.hover,.nav_detail li:hover .yincang{
 
 	/*修改*/
 		
@@ -3234,6 +3232,7 @@ h1,h2,h3,h4,h6,h6{font-weight:normal;font-size:100%}
 	-ms-transform:translate(10px,0);
 	transform:translate(10px,0);
 }
+
 .youqing{
 	width:800px;
 	height:300px;
@@ -3706,6 +3705,6 @@ fieldset[disabled] .btn-link:focus {
   margin-top: 5px;
 }
 
-=======
-}
->>>>>>> 6774fa2b559ca8b9c1910659b00fe51c01ff54ed
+
+
+
